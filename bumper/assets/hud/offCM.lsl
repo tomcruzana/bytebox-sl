@@ -4,7 +4,7 @@ key owner;
 integer BUMPER_HUD_CHANNEL = -8082;
 
 // obj state properties
-integer isOn;
+integer isActive;
 string BTN_NAME = "OFF";
 
 // obj texture state properties
@@ -28,7 +28,7 @@ turnOffBumper()
     // change texture offset value on designated prim face
     xOffsetVal = -0.250;
     llOffsetTexture(xOffsetVal, 0.0, PRIM_FACE);
-    isOn = TRUE; // this means that the button is active
+    isActive = TRUE; // this means that the button is active
 }
 
 default
@@ -54,9 +54,10 @@ default
     
     touch(integer num)
     {
-             // turn on this btn
-            if(!isOn)
+             // activate this btn
+            if(!isActive)
             {
+                // but torn off the attached bumper obj on the avatar
                 turnOffBumper();
             }
     }
@@ -69,7 +70,7 @@ default
              // llRegionSay(BUMPER_HUD_CHANNEL, BTN_NAME  + "_OFF");
              xOffsetVal = 0.250;
              llOffsetTexture(xOffsetVal, 0.0, PRIM_FACE);
-             isOn = FALSE;
+             isActive = FALSE;
         } 
     }
 }
