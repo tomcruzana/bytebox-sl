@@ -8,7 +8,6 @@ string gAnim = "toinkP";
 key gGfx = "364a4655-22d7-ee0e-5e53-22f8fb9c20be";
 key gSfx = "fe5a320a-f9e4-1542-15bd-e4ec7ad36003";
 
-// ["random", "shell", "block", "1Up", "coin", "fireBall", "stomp"]
 list gFxList = ["random", "shell", "block", "1Up", "coin", "fireBall", "stomp", "off"];
 integer isRandomFxOn;
 
@@ -137,15 +136,16 @@ default
     // attach & detach events
     attach(key id)
     {
-        // kill listener if detached
         if(id)
         {
+            // turn off bumper when attached
             isBumperON = FALSE;
             llOwnerSay("BUMPER OFF");
             llOwnerSay("LOG: BUMPER ATTACHED SUCCESSFULLY.");
         }
         if(id == NULL_KEY)
         {
+            // reset this script when detached
             llResetScript();
             llOwnerSay("LOG: BUMPER DETACHED SUCCESSFULLY.");
         }
@@ -215,9 +215,11 @@ default
 
     collision_start(integer num_detected)
     {   
+        // check if randomFx flag is on
         if(isRandomFxOn)
             randomizeFx();
-            
+        
+        // request anim permission if bumper flag is on
         if(isBumperON)
             llRequestPermissions(llGetOwner(), PERMISSION_TRIGGER_ANIMATION);
     }
@@ -243,6 +245,7 @@ default
    
     changed(integer change)
     {
+        // reset this script if the following changes
         if(change & (CHANGED_OWNER | CHANGED_INVENTORY))
         llResetScript();
     }
