@@ -130,7 +130,7 @@ default
         llOwnerSay("INITIALIZING... PLEASE WAIT.");
         owner = llGetOwner();
         listener = llListen(BUMPER_HUD_CHANNEL, "", "", "");
-        llOwnerSay("LOG: BUMPER OBJECT READY.");
+        // llOwnerSay("LOG: BUMPER OBJECT READY.");
     }
     
     // attach & detach events
@@ -141,9 +141,9 @@ default
             // turn off bumper when attached
             isBumperON = FALSE;
             llOwnerSay("BUMPER OFF");
-            llOwnerSay("LOG: BUMPER ATTACHED SUCCESSFULLY.");
+            llOwnerSay("LOG: BUMPER READY!");
         }
-        if(id == NULL_KEY)
+        else
         {
             // reset this script when detached
             llResetScript();
