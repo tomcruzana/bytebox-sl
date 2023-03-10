@@ -1,7 +1,7 @@
 
 # Bumper
 
-a bumper is a virtual attachment that can be worn by an avatar. When activated, the bumper produces various effects such as animations, particles, and sounds. This bumper is inspired bu Super Mario Bros.
+a bumper is a virtual attachment that can be worn by an avatar. When activated, the bumper produces various effects such as animations, particles, and sounds. The bumper HUD offers a selection of bumper effects in this multi-bumper system, which draws inspiration from Super Mario Bros.
 
 ## Instructions
 
