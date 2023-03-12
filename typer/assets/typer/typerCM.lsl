@@ -12,8 +12,14 @@ default
 {
     state_entry()
     {
+        // get owner
         owner = llGetOwner();
 
+        // init fxs
+        gAnim = "";
+        gSfx = "";
+
+        // request anim perms
         if(llGetAttached() != 0){
             llRequestPermissions(owner, PERMISSION_TRIGGER_ANIMATION);
         }
