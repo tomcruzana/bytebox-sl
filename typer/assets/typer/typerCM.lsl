@@ -1,5 +1,5 @@
 key owner;
-key gSound;
+key gSfx;
 string gAnim;
 integer isTyping = FALSE;
 float VOLUME = 1.0;
@@ -55,10 +55,10 @@ default
             if(isTyping){
                 // TODO
                 // change to variables holding sounds
-                llLoopSound(gSound, VOLUME);
+                llLoopSound(gSfx, VOLUME);
             }else{
                 isTyping = TRUE;
-                llTriggerSound(gSound, VOLUME);
+                llTriggerSound(gSfx, VOLUME);
                 llStartAnimation(gAnim);
             }
         }else if(isTyping){
