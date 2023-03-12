@@ -55,10 +55,10 @@ default
             if(isTyping){
                 // TODO
                 // change to variables holding sounds
-                llLoopSound("Electric Guitar _ Sound Effect", VOLUME);
+                llLoopSound(gSound, VOLUME);
             }else{
                 isTyping = TRUE;
-                llTriggerSound("Electric Guitar _ Sound Effect", VOLUME);
+                llTriggerSound(gSound, VOLUME);
                 llStartAnimation(gAnim);
             }
         }else if(isTyping){
